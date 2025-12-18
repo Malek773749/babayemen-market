@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#ff8c00">>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بابا اليمن - السوق الإلكتروني الشامل</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff8c00">
     <style>
         /* ==================== متغيرات الألوان والتصميم ==================== */
         :root {
@@ -91,7 +92,7 @@
             border-radius: 15px;
             display: flex;
             align-items: center;
-            justify-: center;
+            justify-content: center;
             color: white;
             font-size: 28px;
             box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
@@ -2750,19 +2751,15 @@
                 showNotification('يرجى إدخال بريد إلكتروني صحيح', 'error');
             }
         }
-    <script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js")
-      .then(reg => console.log("SW registered"))
-      .catch(err => console.log("SW error", err));
-  });
-}
-</script>
+
+        // ==================== تسجيل Service Worker ====================
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("/sw.js")
+                    .then(reg => console.log("Service Worker registered"))
+                    .catch(err => console.log("Service Worker registration failed", err));
+            });
+        }
+    </script>
 </body>
-                              </html>
-
-
-
-
-
+</html>
